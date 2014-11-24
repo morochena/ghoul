@@ -76,7 +76,6 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
   end
 
   def refresh
-    puts @profile.entries
     @entry_stack.clear
     @profile.entries.each do |entry|
       @entry_stack.append do

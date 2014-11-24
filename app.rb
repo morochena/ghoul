@@ -1,44 +1,10 @@
 require 'shoes'
-
-class Profile
-  attr_reader :entries
-
-  def initialize
-    @entries = []
-    File.open("sampleprofile", "r") do |io|  
-      while line = io.gets
-        if line.split.first == "export"
-          @entries << Entry.new(line)
-        end
-      end
-    end
-  end
-
-end
-
-class Entry 
-  attr_reader :key, :value
-
-  def initialize(line)
-    @key, @value = parse_entry(line)
-  end
-
-  def display_formatted
-    puts "export #{key}=#{value}"
-  end
-
-  def parse_entry(line)
-    line_split = line.split
-    key = line_split[1].split("=").first
-    value = line_split[1].split("=").last
-
-    return key, value
-  end
-end
+require_relative 'profile'
+require_relative 'entry'
 
 profile = Profile.new
 
-Shoes.app width: 552, height: 350 do
+Shoes.app width: 560, height: 350 do
   background white
   stack(margin: 8) do 
     banner "GHOUL"
@@ -51,9 +17,33 @@ Shoes.app width: 552, height: 350 do
         button "save"
         del = button "delete"
         del.click() do 
-          row.clear
+          if confirm("Draw a circle?")
+            row.clear
+          end
         end
       end
+    end
+  end
+  @new_row = stack(margin: 8) do
+    tagline "New Entry" 
+    flow do 
+      key_line = edit_line
+      value_line = edit_line
+      save_button = button "save"
+      cancel_button = button "cancel"
+
+      cancel_button.click() do 
+        @new_row.hide
+        @new_stack.show
+      end
+    end
+  end
+  @new_row.hide
+  @new_stack = stack(margin: 8) do 
+    new_button = button "New"
+    new_button.click() do 
+      @new_row.show
+      @new_stack.hide
     end
   end
 end

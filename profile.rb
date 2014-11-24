@@ -37,6 +37,7 @@ class Profile
       puts 'adding shim to ~/.profile'
       File.open(ENV['HOME']+'/.profile', "a") do |io|
         io << "\n"
+        io << "# Added by Ghoul\n"
         io << "[[ -s \"$HOME/.ghoul_profile\" ]] && source \"$HOME/.ghoul_profile\""
       end
 

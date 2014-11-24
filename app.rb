@@ -4,9 +4,7 @@ require_relative 'entry'
 
 
 Shoes.app title: 'Ghoul', width: 560, height: 350 do
-  background white
   @profile = Profile.new
-
 
   stack(margin: 8) do 
     banner "GHOUL"
@@ -27,7 +25,7 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
 
         delete_button.click() do 
           if confirm("Are you sure?")
-            row.clear
+            del(entry)
           end
         end
 
@@ -45,7 +43,10 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
       cancel_button = button "cancel"
 
       save_button.click() do 
-        @profile.entries << Entry.new("exports #{key.text}=#{value.text}")
+        e = Entry.new()
+        e.set_key(key.text)
+        e.set_value(value.text)
+        @profile.entries << e 
         refresh
         key.text = ""
         value.text = ""
@@ -75,6 +76,7 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
   end
 
   def refresh
+    puts @profile.entries
     @entry_stack.clear
     @profile.entries.each do |entry|
       @entry_stack.append do
@@ -94,11 +96,14 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
             row.clear
           end
         end
-
       end
     end
-
     end
+  end
+
+  def del(entry)
+    @profile.entries.delete(entry)
+    refresh
   end
 
 end

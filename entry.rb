@@ -1,8 +1,16 @@
 class Entry 
   attr_reader :key, :value
 
-  def initialize(line)
+  def initialize(line = "export a=b")
     @key, @value = parse_entry(line)
+  end
+
+  def set_key(key)
+    @key = key 
+  end
+
+  def set_value(value)
+    @value = value
   end
 
   def display_formatted
@@ -19,9 +27,9 @@ class Entry
   end
 
   def parse_entry(line)
-    line_split = line.split
-    key = line_split[1].split("=").first
-    value = line_split[1].split("=").last
+    line.slice! "export "
+    key = line.split("=").first
+    value = line.split("=").last
 
     return key, value
   end

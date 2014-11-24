@@ -1,5 +1,5 @@
-export PATH="$PATH:$HOME/.rvm/bin"
-export GOPATH=$HOME
-export MARCUS=MARCUS
-export YOUNGBLOOD=YOUNGJEEZY
-export GHOUL=WORKS
+export  PATH="$PATH:$HOME/.rvm/bin"
+export  GOPATH=$HOME
+export  MARCUS=is cool
+export  mic check one two one two=I can rap on a beat
+export and so can you!=I'm glad spaces work...

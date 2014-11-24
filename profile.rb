@@ -3,7 +3,7 @@ class Profile
 
   def initialize
     @entries = []
-    File.open(ENV['HOME']+'/.ghoul_profile', "r+") do |io| 
+    File.open(ENV['HOME']+'/.ghoul_profile', "a+") do |io| 
       while line = io.gets
         if line.split.first == "export"
           @entries << Entry.new(line)

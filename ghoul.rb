@@ -10,9 +10,11 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
     banner "GHOUL"
   end
 
+  stack do 
+
   @entry_stack = stack(margin: 8) do
     @profile.entries.each do |entry|
-      row = flow do 
+      flow do 
 
         key = edit_line entry.key
         value = edit_line entry.value
@@ -74,12 +76,18 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
       @profile.write_profile
     end
   end
+end
+
+
+
+
+  # methods
 
   def refresh
     @entry_stack.clear
     @profile.entries.each do |entry|
       @entry_stack.append do
-        row = flow do 
+        flow do 
 
         key = edit_line entry.key
         value = edit_line entry.value

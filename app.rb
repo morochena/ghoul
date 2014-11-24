@@ -93,7 +93,7 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
 
         delete_button.click() do 
           if confirm("Are you sure?")
-            row.clear
+            del(entry)
           end
         end
       end

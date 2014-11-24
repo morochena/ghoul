@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>ghoul</string>
+	<key>CFBundleExecutable</key>
+	<string>JavaAppLauncher</string>
+	<key>CFBundleIconFile</key>
+	<string>Shoes.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.hackety.shoes.ghoul</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>ghoul</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.0</string>
+	<key>JVMArguments</key>
+	<array/>
+	<key>JVMMainClassName</key>
+	<string>JarMain</string>
+	<key>JVMOptions</key>
+	<array>
+		<string>-Dapple.laf.useScreenMenuBar=true</string>
+		<string>-Djruby.compat.version=1.9</string>
+		<string>-XstartOnFirstThread</string>
+	</array>
+	<key>JVMRuntime</key>
+	<string>1.7.0.jdk</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.entertainment</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
+</dict>
+</plist>

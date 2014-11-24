@@ -12,4 +12,7 @@ It also detects if the file is being sourced in `~/.profile`. If not, it adds it
 - Shoes4 gem
 
 To run from command line:
-`ruby -J-XstartOnFirstThread app.rb`
+`ruby -J-XstartOnFirstThread ghoul.rb`
+
+To package:
+`shoes -p swt:app ghoul.rb`

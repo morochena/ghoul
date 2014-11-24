@@ -9,6 +9,15 @@ class Entry
     puts "export #{key}=#{value}"
   end
 
+  def formatted
+    return "export #{key}=#{value}"
+  end
+
+  def save_changes(key, value)
+    @key = key 
+    @value = value
+  end
+
   def parse_entry(line)
     line_split = line.split
     key = line_split[1].split("=").first

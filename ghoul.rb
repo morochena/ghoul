@@ -11,7 +11,7 @@ Shoes.app title: 'Ghoul', width: 560, height: 350 do
 
   stack do
 
-    @entry_stack = stack margin: 8, height: 200, scroll: true do
+    @entry_stack = stack margin: 8, height: "200px", scroll: true do
       @profile.entries.each do |entry|
         flow do
 

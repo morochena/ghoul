@@ -27,8 +27,7 @@ class Profile
     shim_found = false
     File.open(ENV['HOME'] + '/.profile', 'r') do |io|
       while line = io.gets
-        if line.include? "[[ -s \"$HOME/.ghoul_profile\" ]] &&
-                          source \"$HOME/.ghoul_profile\""
+        if line.include? "[[ -s \"$HOME/.ghoul_profile\" ]] && source \"$HOME/.ghoul_profile\""
           shim_found = true
         end
       end
@@ -40,8 +39,7 @@ class Profile
       File.open(ENV['HOME'] + '/.profile', 'a') do |io|
         io << "\n"
         io << "# Added by Ghoul\n"
-        io << "[[ -s \"$HOME/.ghoul_profile\" ]] &&
-                source \"$HOME/.ghoul_profile\""
+        io << "[[ -s \"$HOME/.ghoul_profile\" ]] && source \"$HOME/.ghoul_profile\""
       end
     end
   end

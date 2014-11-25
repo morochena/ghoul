@@ -3,9 +3,9 @@ class Profile
 
   def initialize
     @entries = []
-    File.open(ENV['HOME']+'/.ghoul_profile', "a+") do |io| 
+    File.open(ENV['HOME'] + '/.ghoul_profile', 'a+') do |io|
       while line = io.gets
-        if line.split.first == "export"
+        if line.split.first == 'export'
           @entries << Entry.new(line)
         end
       end
@@ -13,7 +13,7 @@ class Profile
   end
 
   def write_profile
-    File.open(ENV['HOME']+'/.ghoul_profile', "w") do |io|
+    File.open(ENV['HOME'] + '/.ghoul_profile', 'w') do |io|
       @entries.each do |e|
         io.puts e.formatted
       end
@@ -21,28 +21,28 @@ class Profile
     add_shim
   end
 
-  private 
+  private
+
   def add_shim
     shim_found = false
-    File.open(ENV['HOME']+'/.profile', "r") do |io|
-      while line = io.gets 
-        if line.include? "[[ -s \"$HOME/.ghoul_profile\" ]] && source \"$HOME/.ghoul_profile\""
+    File.open(ENV['HOME'] + '/.profile', 'r') do |io|
+      while line = io.gets
+        if line.include? "[[ -s \"$HOME/.ghoul_profile\" ]] &&
+                          source \"$HOME/.ghoul_profile\""
           shim_found = true
         end
       end
     end
 
-    if !shim_found
+    unless shim_found
       puts 'shim not found!!'
       puts 'adding shim to ~/.profile'
-      File.open(ENV['HOME']+'/.profile', "a") do |io|
+      File.open(ENV['HOME'] + '/.profile', 'a') do |io|
         io << "\n"
         io << "# Added by Ghoul\n"
-        io << "[[ -s \"$HOME/.ghoul_profile\" ]] && source \"$HOME/.ghoul_profile\""
+        io << "[[ -s \"$HOME/.ghoul_profile\" ]] &&
+                source \"$HOME/.ghoul_profile\""
       end
-
     end
-
   end
-
 end

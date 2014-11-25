@@ -2,16 +2,19 @@ require 'shoes'
 require_relative 'profile'
 require_relative 'entry'
 
-Shoes.app title: 'Ghoul', width: 560, height: 350 do
+Shoes.app title: 'Ghoul', width: 570, height: 350, scroll: true do
   @profile = Profile.new
 
   stack(margin: 8) do
-    banner 'GHOUL'
+    flow do
+      banner 'GHOUL'
+      image 'ghoul.png', width: '48px', height: '48px', left: 500
+    end
   end
 
   stack do
 
-    @entry_stack = stack margin: 8, height: "200px", scroll: true do
+    @entry_stack = stack margin: 8 do
       @profile.entries.each do |entry|
         flow do
 
